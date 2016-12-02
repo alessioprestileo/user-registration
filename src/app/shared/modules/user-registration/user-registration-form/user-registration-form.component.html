@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <div class="container-fluid form-frame">
+        <form>
+          <div class="row"
+               *ngFor="let key of formControlsKeys">
+            <div class="col-xs-12 input-box">
+                <app-input-box [inFormControl]="formGroup.controls[key]"
+                               [label]="formControlsLabelsMap[key]">
+                </app-input-box>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-offset-8 col-sm-4">
+              <button type="button" class="btn btn-default form-button"
+                      (click)="onSubmitted()"
+                      [disabled]="!formGroup.valid">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

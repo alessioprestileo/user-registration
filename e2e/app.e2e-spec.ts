@@ -1,10 +1,10 @@
-import { UserRegistraionPage } from './app.po';
+import { UserRegistrationPage } from './app.po';
 
-describe('user-registraion App', function() {
-  let page: UserRegistraionPage;
+describe('user-registration App', function() {
+  let page: UserRegistrationPage;
 
   beforeEach(() => {
-    page = new UserRegistraionPage();
+    page = new UserRegistrationPage();
   });
 
   it('should display message saying app works', () => {
