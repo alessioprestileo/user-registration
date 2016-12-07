@@ -14,9 +14,9 @@
                        'has-feedback': hasError(boxControl) ||
                                        hasSuccess(boxControl)}"
            style="margin-bottom: 0">
-        <input #box #boxControl="ngForm" type="text"
-               class="app-input-box"
-               [formControl]="inFormControl">
+        <input #box #boxControl="ngForm" class="app-input-box"
+               [formControl]="inFormControl"
+               [type]="type">
         <span [ngClass]="{
               'glyphicon form-control-feedback':
                   hasError(boxControl) || hasSuccess(boxControl),
