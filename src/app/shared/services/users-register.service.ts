@@ -18,15 +18,6 @@ export class UsersRegisterService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
-  private remove(id: number) : Promise<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let url = `${this.url}/${id}`;
-    return this.http
-      .delete(url, headers)
-      .toPromise()
-      .catch(UsersRegisterService.handleError);
-  }
   private post(user: User) : Promise<User> {
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -45,6 +36,15 @@ export class UsersRegisterService {
       .put(url, JSON.stringify(user), { headers: headers })
       .toPromise()
       .then(() => user)
+      .catch(UsersRegisterService.handleError);
+  }
+  private remove(id: number) : Promise<any> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let url = `${this.url}/${id}`;
+    return this.http
+      .delete(url, headers)
+      .toPromise()
       .catch(UsersRegisterService.handleError);
   }
   /* Public methods */
