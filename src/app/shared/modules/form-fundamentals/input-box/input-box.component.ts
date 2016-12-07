@@ -11,12 +11,14 @@ export class InputBoxComponent implements OnInit {
   @Input() private labelCssClass: string;
   @Input() private label: string = 'Value:';
   @Input() private placeHolder: string;
+  @Input() private type: string;
   @ViewChild("box") private box: ElementRef;
   private labelDefaultCssClass: string = 'app-input-box-label';
 
   constructor() {}
 
   ngOnInit() {
+    this.setType();
     this.setPlaceHolder();
   }
   /* Private methods */
@@ -29,6 +31,16 @@ export class InputBoxComponent implements OnInit {
     let inputElm: HTMLElement = this.box.nativeElement;
     if (!inputElm.getAttribute('value')) {
       inputElm.setAttribute("placeholder", this.placeHolder);
+    }
+  }
+  private setType() : void {
+    if (!this.type) {
+      if (this.label.toLocaleLowerCase().includes('password')) {
+        this.type = 'password';
+      }
+      else {
+        this.type = 'text';
+      }
     }
   }
   /* Public methods */

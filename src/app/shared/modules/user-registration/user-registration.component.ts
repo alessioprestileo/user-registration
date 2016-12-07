@@ -9,7 +9,7 @@ import { UsersRegisterService } from "../../services/users-register.service";
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  private title: string = 'Sign up!';// for our services!';
+  private title: string = 'Sign up for our services!';
 
   constructor(
     private registrationService: UsersRegisterService

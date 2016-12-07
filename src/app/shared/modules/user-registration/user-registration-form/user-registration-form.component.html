@@ -6,13 +6,20 @@
           <div class="row"
                *ngFor="let key of formControlsKeys">
             <div class="col-xs-12 input-box">
-                <app-input-box [inFormControl]="formGroup.controls[key]"
-                               [label]="formControlsLabelsMap[key]">
-                </app-input-box>
+              <app-input-box [inFormControl]="formGroup.controls[key]"
+                             [label]="formControlsLabelsMap[key]">
+              </app-input-box>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-offset-8 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-default form-button"
+                      (click)="resetValues()"
+                      [disabled]="formGroup.pristine">
+                Reset
+              </button>
+            </div>
+            <div class="col-sm-4">
               <button type="button" class="btn btn-default form-button"
                       (click)="onSubmitted()"
                       [disabled]="!formGroup.valid">

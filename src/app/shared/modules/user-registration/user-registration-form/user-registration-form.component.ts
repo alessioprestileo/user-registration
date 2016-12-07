@@ -36,6 +36,9 @@ export class UserRegistrationFormComponent implements OnInit {
   private createFormGroup() : void {
     this.formGroup = new FormGroup({}, this.formGroupValidatorFn);
   }
+  private resetValues() : void {
+    this.formGroup.reset();
+  }
   private setFormControlsKeys() : void {
     this.formControlsKeys = ['emailAddress', 'name', 'password'];
   }
@@ -55,5 +58,6 @@ export class UserRegistrationFormComponent implements OnInit {
       password: this.formGroup.controls['password'].value,
     };
     this.emSubmitted.emit(user);
+    this.resetValues();
   }
 }
